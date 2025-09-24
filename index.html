@@ -3,448 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Katryn Steenkamp - Software Engineer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .cv-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="90" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.3;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .name {
-            font-size: 3em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .title {
-            font-size: 1.3em;
-            font-weight: 300;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .summary {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 1.1em;
-            box-shadow: 0 10px 20px rgba(240, 147, 251, 0.3);
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section-title {
-            font-size: 1.8em;
-            color: #667eea;
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 2px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .skill-category {
-            background: #f8f9ff;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.1);
-        }
-
-        .skill-category h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .experience-item, .education-item {
-            background: #f8f9ff;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border-left: 4px solid #764ba2;
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:hover, .education-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.1);
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .item-title {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .item-company {
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .item-date {
-            color: #666;
-            font-size: 0.9em;
-            background: rgba(102, 126, 234, 0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .hobbies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .hobby-item {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .hobby-item:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .reference {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
-        }
-
-        .reference h4 {
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .reference-quote {
-            font-style: italic;
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-
-        .reference-author {
-            text-align: right;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .name {
-                font-size: 2.2em;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .item-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-        }
-    </style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
 </head>
-<body>
-    <div class="container">
-        <div class="cv-card">
-            <header class="header">
-                <div class="header-content">
-                    <h1 class="name">Katryn Steenkamp</h1>
-                    <p class="title">Software Engineer</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span>📱</span>
-                            <span>0633079758</span>
-                        </div>
-                        <div class="contact-item">
-                            <span>✉️</span>
-                            <a href="mailto:KatrynSteenkamp0@gmail.com">KatrynSteenkamp0@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <span>💼</span>
-                            <a href="#" target="_blank">LinkedIn</a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <main class="content">
-                <div class="summary">
-                    I am a self-motivated, focused and highly detail-oriented software engineer with a diverse educational background, passionate about creating innovative solutions and continuous learning.
-                </div>
-
-                <section class="section">
-                    <h2 class="section-title">Skills</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Programming Languages</h4>
-                            <p>HTML, CSS, JavaScript, C#, GDScript, Python</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Tools & Platforms</h4>
-                            <p>Make.Com, Wix, POSTMAN, Canva, WordPress, Figma, Visual Studio, VS Code, Godot</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Specializations</h4>
-                            <p>Full-Stack Development, Cyber Security, Creative Writing, Technical Documentation</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Soft Skills</h4>
-                            <p>Communication, Teamwork, Adaptability, Problem-solving, Leadership, Work Ethic, Time Management, Conflict Management</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">Experience</h2>
-                    
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Back-End Data & AI Automation System</div>
-                                <div class="item-company">Growthlab, Remote</div>
-                            </div>
-                            <div class="item-date">July 2025</div>
-                        </div>
-                        <p>Created and documented an automated personalised AI form results response system using Make.Com and Wix forms.</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">"Echo Me" Project Lead</div>
-                                <div class="item-company">Personal Project, Remote</div>
-                            </div>
-                            <div class="item-date">March 2025</div>
-                        </div>
-                        <p>Project-lead of an AI-based South African Sign Language Interpreter Python web application (currently in development).</p>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Article Management</div>
-                                <div class="item-company">Hortgro, Remote</div>
-                            </div>
-                            <div class="item-date">June 2022</div>
-                        </div>
-                        <p>Uploaded and modified scientific articles on Hortgro's WordPress website.</p>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">Education</h2>
-                    
-                    <div class="education-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Third Year Bachelor of Computing</div>
-                                <div class="item-company">Belgium Campus ITVERSITY, Stellenbosch & Remote</div>
-                            </div>
-                            <div class="item-date">January 2025</div>
-                        </div>
-                        <p>Software Engineering stream, electives in "User Experience & Design 381" and "Software Testing 281". Third Year research proposal: "AI-Misuse and Its Effects on student cognition at Belgium Campus"</p>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Higher Certificate Cyber Security</div>
-                                <div class="item-company">CPUT (Cape Town), Remote</div>
-                            </div>
-                            <div class="item-date">January 2022</div>
-                        </div>
-                        <p>Specialized in computer systems and technical security. Achieved the highest grade in the group, with distinctions in all topics.</p>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Higher Certificate Conservation Ecology</div>
-                                <div class="item-company">AEL, Uppington</div>
-                            </div>
-                            <div class="item-date">December 2020</div>
-                        </div>
-                        <p>Focus on leadership and team management. Achieved four distinctions.</p>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">Activities & Hobbies</h2>
-                    <div class="hobbies-grid">
-                        <div class="hobby-item">
-                            <h4>🔬 Research</h4>
-                            <p>Exploring scientific journals and blogs</p>
-                        </div>
-                        <div class="hobby-item">
-                            <h4>✍️ Creative Writing</h4>
-                            <p>Storytelling and digital content creation</p>
-                        </div>
-                        <div class="hobby-item">
-                            <h4>🧶 Craftsmanship</h4>
-                            <p>Crochet, Woodworking & Weaving</p>
-                        </div>
-                        <div class="hobby-item">
-                            <h4>🎮 Game Development</h4>
-                            <p>Creating interactive experiences</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2 class="section-title">Reference</h2>
-                    <div class="reference">
-                        <h4>Jana Rademan - Belgium Campus ITversity</h4>
-                        <div class="reference-quote">
-                            "Katryn is, without a doubt, one of the most talented, reliable, and genuinely amazing individuals I've ever worked with. She is quick-thinking, intelligent, and consistently delivers amazing results. Her blend of professionalism, warmth, and sharp mind makes her an outstanding teammate and a truly special person to have on any team."
-                        </div>
-                        <div class="reference-author">
-                            <strong>Contact:</strong> janarademan1236@gmail.com | 0764704912
-                        </div>
-                    </div>
-                </section>
-            </main>
+<body  class="w3-light-grey" >
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+       <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg" style="width:100%" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-white">
+            <h2>Katryn Steenkamp</h2>
+          </div>
         </div>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>3rd Year BComp Student</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Western Cape, South Africa</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>KatrynSteenkamp0@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>**********</p>
+           <p>I am self-motivated, focused and highly detail-oriented software engineer with a diverse educational background. </p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>Programming Languages</p>
+            <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">HTML, CSS, JavaScript, C#, GDScript, Python</div>
+          </div>
+          <p>Tools & Platforms</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white"> POSTMAN, Figma, Visual Studio, VS Code, Godot</div>
+            </div>
+          </div>
+          <p>Specializations</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:95%">Full-Stack Development, Cyber Security, Technical writing</div>
+          </div>
+          <p>Soft Skills</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">Communication, Problem-solving, Leadership</div>
+          </div>
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p>Afrikaans</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:100%">100%</div>
+          </div>
+          <p>English</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:100%">100%</div>
+          </div>
+          <p>Dutch</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:45%">45%</div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
     </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Digital Article management / Hortgro</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>JUNE 2022 - AUGUST 2022</h6>
+          <p>Uploaded and modified scientific articles on Hortgro’s WordPress website. </p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>“Echo Me” project lead / Personal Project</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>MARCH 2025  - <span class="w3-tag w3-teal w3-round">CURRENT</span></h6>
+          <p>Project-lead of an ai-based South African Sign Language Interpreter python web application (currently in development).</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Back-End data & AI automation system / Growthlab</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>JULY 2025  - AUGUST 2025</h6>
+          <p>Created and documented an automated personalised ai form results response system using Make.Com and Wix forms.</p><br>
+        </div>
+      </div>
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>AEL  -  Higher certificate Conservation Ecology</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>DECEMBER 2020</h6>
+          <p>Focus on leadership and team management. Achieved four distinctions</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>CPUT  -  Higher certificate Cyber Security</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>JANUARY 2022</h6>
+          <p>Specialized in computer systems and technical security. Achieved the highest grade in the group, with distinctions in all topics.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Belgium Campus ITVERSITY  -  Third Year Bachelor of Computing</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2026</h6>
+          <p>Software Engineering stream, electives in "User Experience & Design 381" and "Software Testing 281". Third Year research proposal: "AI-Misuse and Its Effects on student cognition at Belgium Campus"</p><br>
+        </div>
+
+
+      </div>
+ 
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>AEL  -  Higher certificate Conservation Ecology</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>DECEMBER 2020</h6>
+          <p>Focus on leadership and team management. Achieved four distinctions</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>CPUT  -  Higher certificate Cyber Security</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>JANUARY 2022</h6>
+          <p>Specialized in computer systems and technical security. Achieved the highest grade in the group, with distinctions in all topics.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Belgium Campus ITVERSITY  -  Third Year Bachelor of Computing</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2026</h6>
+          <p>Software Engineering stream, electives in "User Experience & Design 381" and "Software Testing 281". Third Year research proposal: "AI-Misuse and Its Effects on student cognition at Belgium Campus"</p><br>
+        </div>
+
+
+      </div>
+      
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Find me on social media.</p>
+    <i class="fa fa-linkedin w3-hover-opacity"><a href="https://www.linkedin.com/in/katryn-steenkamp-19aba6150/"></a></i>
+</footer>
+
 </body>
 </html>
